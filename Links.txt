@@ -1,0 +1,12 @@
+DockerHub TALLER
+
+https://hub.docker.com/r/luisjordan/taller1/
+https://hub.docker.com/r/luisjordan/nginx_lnmp/
+https://hub.docker.com/r/luisjordan/php_lnmp/
+https://hub.docker.com/r/luisjordan/mysql_lnmp/
+
+APACHE
+https://hub.docker.com/r/luisjordan/apache_lamp/
+https://hub.docker.com/r/luisjordan/php_lamp/
+https://hub.docker.com/r/luisjordan/mysql_lamp/
+
