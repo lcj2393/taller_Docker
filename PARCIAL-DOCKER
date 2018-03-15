@@ -1,0 +1,30 @@
+SERVIDOR 
+MySQL => BD ----> -p 3306:3306 (puerto local, puerto docker)
+PHP ==> PHPFPM -----> /var/www/html 
+Nginx
+*******************************************************************
+#CONFIGURACION E INSTALACION NGINX
+#NGINEX
+sudo docker run --name nginx -d -p 80:80 --link php7 -v /home/luisjordan/Escritorio/Docker/wordpress:/var/www/html -v /home/luisjordan/Escritorio/Docker/config_nginx/:/etc/nginx/conf.d nginx
+
+#PHP
+sudo docker run --name php7 --link luis:luis -v /home/luisjordan/Escritorio/Docker/wordpress:/var/www/html -v /home/luisjordan/Escritorio/Docker/config_php:/usr/local/etc/php -d php:7.0-fpm
+
+#MYSQL
+sudo docker run --name luis -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=ejemplo mysql 
+
+********************************************************************************************* 
+#CONFIGURACION E INSTALACION APACHE
+#PHP
+sudo docker run --name php7_lamp --link mysql_lamp:mysql_lamp -d php:7.0-fpm
+
+#APACHE2
+sudo docker run --name phpapache -p 80:80 -v /home/luisjordan/Escritorio/Docker_LAMP/taller1-lamp:var/www/html -d --link sql_lamp:mysql php:7.0-apache
+
+#MYSQL
+sudo docker run --name mysql_lamp -d -p 3308:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=ejemplo mysql 
+
+
+sudo docker run --name myapache_2lamp -d -p 80:80 --link php7_lamp httpd
+
+
